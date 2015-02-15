@@ -6,11 +6,19 @@
 	<display-name>Archetype Created Web Application</display-name>
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
-		<param-value>applicationContext.xml</param-value>
+		<!-- 使用自定义的CustomServletListener时候  -->
+		<!-- <param-value>applicationContext.xml</param-value> -->
+		
+		<!-- 使用org.springframework.web.context.ContextLoaderListener时候  -->
+		<param-value>classpath:applicationContext.xml </param-value>
 	</context-param>
 
-	<listener>
+<!-- 	<listener>
 		<listener-class>com.david.web.CustomServletListener</listener-class>
+	</listener> -->
+
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
 
 	<servlet>
